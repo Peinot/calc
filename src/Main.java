@@ -50,7 +50,7 @@ public class Main {
         if (chars.length == 7 || chars.length == 6 && a != 10) b = 10;
         else b = Character.getNumericValue(chars[4 + sd]);
 
-        if ((a < 0 || a > 10) || (b < 0 || b > 10))
+        if ((a < 1 || a > 10) || (b < 1 || b > 10))
             try {
                 throw new IOException();
             } catch (IOException e) {
@@ -62,15 +62,7 @@ public class Main {
         if (oper == '+') res = a + b;
         if (oper == '-') res = a - b;
         if (oper == '*') res = a * b;
-        if (oper == '/') {
-            if (b == 0)
-                try {
-                    throw new IOException();
-                } catch (IOException e) {
-                    return "Деление на 0";
-                }
-            res = a / b;
-        }
+        if (oper == '/') res = a / b;
 
         return Integer.toString(res);
     }
